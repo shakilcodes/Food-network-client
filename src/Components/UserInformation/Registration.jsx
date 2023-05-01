@@ -1,22 +1,61 @@
 
 
+import { GoogleAuthProvider, updateProfile } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Registration = () => {
-    const {registration} = useContext(AuthContext)
+    const {registration, googleSignUp, updateUser, isLoading, user} = useContext(AuthContext)
+// const userData = user;
+// console.log(userData)
+    // if(isLoading){
+    //     return "loadinnggg....."
+    // }
 
     const registrationHandle = (event) => {
         event.preventDefault()
         const email = event.target.email.value
         const password = event.target.password.value
-        console.log(email, password)
+        const name = event.target.name.value
+        const photo = event.target.photo.value
+        // const userDAta = user
+        console.log(email, password, photo)
         registration(email, password)
+        
         .then(result=>{
-            console.log(result)
+            const loggedUser = result.user;
+            displayName(name, photo, loggedUser)
+            // console.log(loggedUser)
+        })
+        .catch(error => console.log(error))
+        
+        
+    }
+
+    const provider = new GoogleAuthProvider();
+    const handleGoogle = () =>{
+        googleSignUp(provider)
+
+        .then(result => {
+            
+            console.log(result.user.email)
         })
         .catch(error => console.log(error))
     }
+
+    const displayName = (name, photo, loggeduser)=>{
+        // console.log(loggeduser)
+        updateProfile( loggeduser, {
+            displayName: name, photoURL: photo
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            // An error occurred
+            // ...
+          });
+    }
+
     return (
         <div>
             <h1 className='text-7xl mt-10 text-center'>Registraion Please</h1>
@@ -26,6 +65,18 @@ const Registration = () => {
                 <div className="hero-content flex-col">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Full Name</span>
+                                </label>
+                                <input type="text" placeholder="name" name='name' className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="text" placeholder="Photo URL" name='photo' className="input input-bordered" />
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -52,6 +103,15 @@ const Registration = () => {
                 </div>
             </div>
             </form>
+
+            <div className=''>
+            <div className='text-center mt-5 text-white font-bold'>
+                <button onClick={handleGoogle} className='mx-auto bg-primary p-4 px-10 rounded-md'>SignUp with Google</button>
+            </div>
+            <div className='text-center mt-1 text-white font-bold'>
+                <button className='mx-auto bg-primary p-4 px-10 rounded-md'>SignUp with GitHub</button>
+            </div>
+            </div>
         </div>
     );
 };

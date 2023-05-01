@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        // loader: ()=> fetch('http://localhost:5005/datas')
+        loader: ()=> fetch('http://localhost:5005/datas')
       },
       {
         path: 'login',
