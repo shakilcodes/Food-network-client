@@ -1,6 +1,10 @@
-import React from 'react';
 
+
+import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 const Registration = () => {
+    const {registration} = useContext(AuthContext)
 
     const registrationHandle = (event) => {
         event.preventDefault()

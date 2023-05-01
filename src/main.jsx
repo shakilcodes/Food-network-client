@@ -13,6 +13,7 @@ import Login from './Components/UserInformation/Login.jsx';
 import Registration from './Components/UserInformation/Registration.jsx';
 import Root from './Components/Root/Root.jsx';
 import Blog from './Components/Blog/Blog.jsx';
+import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        // loader: ()=> fetch('http://localhost:5005/datas')
       },
       {
         path: 'login',
@@ -40,6 +42,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <AuthProvider> <RouterProvider router={router} /></AuthProvider>
+   </React.StrictMode>,
 )

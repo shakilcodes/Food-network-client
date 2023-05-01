@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
+        <div className='bg-gray-600 py-5 text-white rounded-lg'>
             <div className='flex justify-between mx-32'>
             <div>
                 <h1 className='text-4xl'>Food Network</h1>

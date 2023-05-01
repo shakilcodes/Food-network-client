@@ -1,6 +1,9 @@
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
+    const {signUp} = useContext(AuthContext)
 
     const loginHandle = (event) => {
         event.preventDefault()
