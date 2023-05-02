@@ -24,6 +24,10 @@ const googleSignUp = (Provider) =>{
     setIsloading(true)
     signInWithPopup(auth, Provider)
 }
+const gitHubSign = (Provider) =>{
+    setIsloading(true)
+    signInWithPopup(auth, Provider)
+}
 
 const handleSignOut =()=>{
     signOut(auth)
@@ -48,7 +52,8 @@ useEffect(()=>{
         signUp,
         googleSignUp,
         handleSignOut,
-        isLoading
+        isLoading,
+        gitHubSign
 
     }
     return (

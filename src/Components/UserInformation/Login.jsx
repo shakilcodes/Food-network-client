@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -8,7 +8,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {signUp, googleSignUp} = useContext(AuthContext)
+    const {signUp, googleSignUp, gitHubSign} = useContext(AuthContext)
     const navigate = useNavigate();
      const location = useLocation();
      const from = location?.state?.from.pathname || '/'
@@ -20,7 +20,7 @@ const Login = () => {
         const password = event.target.password.value
         console.log(email, password)
         signUp(email, password)
-       
+        
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser)
@@ -38,6 +38,7 @@ const Login = () => {
     }
 
     const provider = new GoogleAuthProvider();
+    const gitProvider = new GithubAuthProvider();
     const handleGoogle = () =>{
         googleSignUp(provider)
         
@@ -46,6 +47,14 @@ const Login = () => {
             console.log(loggedUser)
             navigate(from, {replace: true})
             
+        })
+        .catch(error => console.log(error))
+    }
+
+    const handleGithubSignIn = ()=>{
+        gitHubSign(gitProvider)
+        .then(result => {
+            console.log(result)
         })
         .catch(error => console.log(error))
     }
@@ -90,7 +99,7 @@ const Login = () => {
                 <button onClick={handleGoogle} className='mx-auto bg-primary p-4 px-10 rounded-md'>Login with Google</button>
             </div>
             <div className='text-center mt-1 text-white font-bold'>
-                <button className='mx-auto bg-primary p-4 px-10 rounded-md'>Login with GitHub</button>
+                <button onClick={handleGithubSignIn} className='mx-auto bg-primary p-4 px-10 rounded-md'>Login with GitHub</button>
             </div>
             </div>
         </div>
