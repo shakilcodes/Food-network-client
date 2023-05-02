@@ -5,9 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const RecipesSection = ({ recipes }) => {
 
-    const toastHandle = () =>{
+    const toastHandle = () => {
         console.log('cliked')
-        const notify = () => toast("Wow so easy!");
+        toast("Wow so easy!");
+        const btn = document.getElementById('disbble-btn')
+        btn.setAttribute('disabled', true);
     }
     // console.log(recipes)
     return (
@@ -33,11 +35,11 @@ const RecipesSection = ({ recipes }) => {
                     <p><span className='text-xl font-bold'>Rating</span>: {recipes.rating
                     }</p>
                     <div className="card-actions">
-                        <Link onClick={toastHandle} className="btn btn-primary">Favorite</Link>
-
+                        <Link  id='disbble-btn' onClick={toastHandle} className="btn btn-primary">Favorite</Link>
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
