@@ -1,17 +1,18 @@
 import React from 'react';
 import './Heder.css'
 import { useContext } from 'react';
-import { Link, Navigate, Outlet } from 'react-router-dom';
+import { Link, Navigate, NavLink, Outlet } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import NavPic from './NavPic';
+import ActiveLink from '../ActiveLInk/ActiveLink';
 
 const Header = () => {
     const { user, isLoading, handleSignOut } = useContext(AuthContext)
 
-    const signOut =()=>{
+    const signOut = () => {
         handleSignOut()
-        .then(resut => console.log(resut))
-        .catch(error => console.log(error))
+            .then(resut => console.log(resut))
+            .catch(error => console.log(error))
     }
     return (
         <div className='bg-gray-600 py-2 text-white rounded-lg'>
@@ -20,14 +21,14 @@ const Header = () => {
                     <h1 className=' hidden md:block md:text-4xl'>Food Network</h1>
                 </div>
                 <div className='md:text-2xl flex items-center gap-5'>
-                    <Link to='/'>Home</Link>
-                    <Link to='/blog'>Blog</Link>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/registration'>Registration</Link>
+                    <ActiveLink to='/'>Home</ActiveLink>
+                    <ActiveLink to='/blog'>Blog</ActiveLink>
+                    <ActiveLink to='/login'>Login</ActiveLink>
+                    <ActiveLink to='/registration'>Registration</ActiveLink>
 
                     {
-                        <NavPic user = {user}></NavPic>
-                        
+                        <NavPic user={user}></NavPic>
+
                     }
                     {
                         user == null ? "" : <Link className='btn' onClick={signOut}>SignOut</Link>

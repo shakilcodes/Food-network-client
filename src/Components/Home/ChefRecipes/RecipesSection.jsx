@@ -6,8 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const RecipesSection = ({ recipes }) => {
 
     const toastHandle = () => {
-        console.log('cliked')
-        toast("Wow so easy!");
+        toast("Add to favorit");
         const btn = document.getElementById('disbble-btn')
         btn.setAttribute('disabled', true);
     }
