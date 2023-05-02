@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const ChefCard = ({ data }) => {
     console.log(data)
     return (
-        <div className='flex'>
-            <div className=" w-96 bg-base-100 shadow-xl">
+        <div className='md:flex'>
+            <div className=" md:w-96 bg-base-100 shadow-xl">
                 <figure className="p-2 mt-2">
                     <img src={data.picture}alt="Shoes" className="rounded-xl" />
                 </figure>

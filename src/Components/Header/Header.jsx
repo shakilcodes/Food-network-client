@@ -7,14 +7,6 @@ import NavPic from './NavPic';
 
 const Header = () => {
     const { user, isLoading, handleSignOut } = useContext(AuthContext)
-    // console.log(user.user.photoURL)
-    
-    // if (isLoading) {
-    //     return
-    // }
-    // if(!user){
-    //     return 
-    // }
 
     const signOut =()=>{
         handleSignOut()
@@ -23,11 +15,11 @@ const Header = () => {
     }
     return (
         <div className='bg-gray-600 py-2 text-white rounded-lg'>
-            <div className='flex justify-between items-center mx-32'>
+            <div className='flex justify-between items-center md:mx-32'>
                 <div>
-                    <h1 className='text-4xl'>Food Network</h1>
+                    <h1 className=' hidden md:block md:text-4xl'>Food Network</h1>
                 </div>
-                <div className='text-2xl flex items-center gap-5'>
+                <div className='md:text-2xl flex items-center gap-5'>
                     <Link to='/'>Home</Link>
                     <Link to='/blog'>Blog</Link>
                     <Link to='/login'>Login</Link>
