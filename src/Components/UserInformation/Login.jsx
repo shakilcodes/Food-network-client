@@ -40,7 +40,7 @@ const Login = () => {
         .catch(error => console.log(error))
     }
     return (
-        <div>
+        <div className=''>
             <h1 className='text-7xl text-center mt-10'>Please Login</h1>
 
            <form onSubmit={loginHandle}>
