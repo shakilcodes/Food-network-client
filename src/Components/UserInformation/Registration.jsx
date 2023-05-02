@@ -2,9 +2,11 @@
 
 import { GoogleAuthProvider, updateProfile } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Registration = () => {
+    const [error, setError] =useState("")
     const {registration, googleSignUp, updateUser, isLoading, user} = useContext(AuthContext)
 // const userData = user;
 // console.log(userData)
@@ -25,9 +27,14 @@ const Registration = () => {
         .then(result=>{
             const loggedUser = result.user;
             displayName(name, photo, loggedUser)
+            setError("")
+            event.target.reset();
             // console.log(loggedUser)
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            setError(error.message)
+            console.log(error)
+        })
         
         
     }
@@ -57,28 +64,29 @@ const Registration = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
+                                <p className='text-warning'>{error}</p>
                                 <label className="label">
-                                    <span className="label-text">Full Name</span>
+                                    <span className="label-text">Full Name (Optional)</span>
                                 </label>
                                 <input type="text" placeholder="name" name='name' className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo URL</span>
+                                    <span className="label-text">Photo URL (Optional)</span>
                                 </label>
                                 <input type="text" placeholder="Photo URL" name='photo' className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text">Email (Requred)</span>
                                 </label>
-                                <input type="text" placeholder="email" name='email' className="input input-bordered" />
+                                <input type="text" placeholder="email" name='email' className="input input-bordered" required/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text">Password (Requred)</span>
                                 </label>
-                                <input type="text" placeholder="password" name='password' className="input input-bordered" />
+                                <input type="password" placeholder="password" name='password' className="input input-bordered" required/>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>

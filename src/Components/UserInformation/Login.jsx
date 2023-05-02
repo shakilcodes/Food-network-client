@@ -1,10 +1,13 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import {   useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const {signUp, googleSignUp} = useContext(AuthContext)
     const navigate = useNavigate();
      const location = useLocation();
@@ -22,9 +25,16 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser)
            navigate(from, {replace: true})
+           setPassword('')
+           event.target.reset();
            
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            const errorFind = error;
+            setPassword(error.message)
+            console.log(error.message)
+            
+        })
     }
 
     const provider = new GoogleAuthProvider();
@@ -49,16 +59,17 @@ const Login = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
+                                <p className='text-warning text-center'>{password}</p>
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" name='email' className="input input-bordered" />
+                                <input type="text" placeholder="email" name='email' className="input input-bordered" required/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                                <input type="text" name='password' placeholder="password" className="input input-bordered" required/>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
