@@ -15,7 +15,7 @@ const BannerText = () => {
 
                 </p>
             </div>
-            <img src="./../../../assignment-10-asset/img/banner.png" alt="" />
+            <img src="https://i.postimg.cc/3w0RcpQQ/bannerimages.jpg" alt="" />
         </div>
     );
 };
