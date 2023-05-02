@@ -29,9 +29,9 @@ const Header = () => {
                 </div>
                 <div className='text-2xl flex items-center gap-5'>
                     <Link to='/'>Home</Link>
+                    <Link to='/blog'>Blog</Link>
                     <Link to='/login'>Login</Link>
                     <Link to='/registration'>Registration</Link>
-                    <Link to='/blog'>Blog</Link>
 
                     {
                         <NavPic user = {user}></NavPic>

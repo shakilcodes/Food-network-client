@@ -16,6 +16,9 @@ const Home = () => {
                 datas.map(d => <ChefCard data= {d} key={d.id}></ChefCard>)
             }
             </div>
+            <div>
+                
+            </div>
         </div>
     );
 };

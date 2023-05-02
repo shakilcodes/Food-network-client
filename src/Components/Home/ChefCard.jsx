@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({ data }) => {
+    console.log(data)
     return (
         <div className='flex'>
             <div className=" w-96 bg-base-100 shadow-xl">
                 <figure className="p-2 mt-2">
-                    <img src="./../../../assignment-10-asset/img/chef-one.jpeg" alt="Shoes" className="rounded-xl" />
+                    <img src={data.picture}alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{data.name}</h2>

@@ -7,13 +7,17 @@ const ChefRecipes = () => {
 
     const id = useParams()
     const singleData = useLoaderData()
+    console.log(singleData)
     return (
         <div className='mx-32'>
+
+            
             <h1 className='text-5xl text-center mt-10 font-bold'>Chef Recipes</h1>
            <section>
            <div className='chefRecipes  flex'>
                 <div className=''>
-                    <img className='' src='./../../../../assignment-10-asset/img/chef-two.jpeg' alt="" />
+                    {/* <img className='' src={singleData.picture} alt="" /> */}
+                    <img src={singleData.picture} alt="" />
                 </div>
                 <div className=' mt-5'>
                     <h1 className='text-4xl font-semibold'>Chef: {singleData.name}</h1>
@@ -31,6 +35,7 @@ const ChefRecipes = () => {
                     singleData.recipes.map(sd => <RecipesSection recipes={sd}></RecipesSection>)
                 }
             </div>
+            
            </section>
 
         </div>

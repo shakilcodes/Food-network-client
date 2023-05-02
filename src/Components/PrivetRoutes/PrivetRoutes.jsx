@@ -8,7 +8,9 @@ const {isLoading, user} = useContext(AuthContext)
 const location = useLocation();
 
 if(isLoading){
-    return <p className='text-7xl text-center font-bold mt-32'>Wating.......</p>
+    return <p className='text-7xl text-center font-bold mt-32'><progress className="progress w-56"></progress>
+
+    </p>
 }
 
 // console.log(user)
