@@ -1,9 +1,10 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
-    const {signUp} = useContext(AuthContext)
+    const {signUp, googleSignUp} = useContext(AuthContext)
 
     const loginHandle = (event) => {
         event.preventDefault()
@@ -14,6 +15,17 @@ const Login = () => {
        
         .then(result=>{
             console.log(result)
+        })
+        .catch(error => console.log(error))
+    }
+
+    const provider = new GoogleAuthProvider();
+    const handleGoogle = () =>{
+        googleSignUp(provider)
+
+        .then(result => {
+            
+            console.log(result.user.email)
         })
         .catch(error => console.log(error))
     }
@@ -52,6 +64,14 @@ const Login = () => {
                 </div>
             </div>
            </form>
+           <div className=''>
+            <div className='text-center mt-5 text-white font-bold'>
+                <button onClick={handleGoogle} className='mx-auto bg-primary p-4 px-10 rounded-md'>Login with Google</button>
+            </div>
+            <div className='text-center mt-1 text-white font-bold'>
+                <button className='mx-auto bg-primary p-4 px-10 rounded-md'>Login with GitHub</button>
+            </div>
+            </div>
         </div>
     );
 };

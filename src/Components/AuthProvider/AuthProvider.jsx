@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile} from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import app from '../firebase.config';
@@ -25,7 +25,9 @@ const googleSignUp = (Provider) =>{
     signInWithPopup(auth, Provider)
 }
 
-
+const handleSignOut =()=>{
+    signOut(auth)
+}
 
 
 useEffect(()=>{
@@ -45,7 +47,7 @@ useEffect(()=>{
         registration,
         signUp,
         googleSignUp,
-        
+        handleSignOut,
         isLoading
 
     }

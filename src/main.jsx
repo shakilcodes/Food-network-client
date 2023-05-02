@@ -14,6 +14,9 @@ import Registration from './Components/UserInformation/Registration.jsx';
 import Root from './Components/Root/Root.jsx';
 import Blog from './Components/Blog/Blog.jsx';
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
+import ErorrPage from './Components/ErrorPage/ErorrPage.jsx';
+import ChefRecipes from './Components/Home/ChefRecipes/ChefRecipes.jsx';
+import PrivetRoute from './Components/PrivetRoutes/PrivetRoutes.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +38,15 @@ const router = createBrowserRouter([
       {
         path: 'blog',
         element: <Blog></Blog>
+      },
+      {
+        path: '*',
+        element: <ErorrPage></ErorrPage>
+      },
+      {
+        path: '/recipes/:id',
+        element: <PrivetRoute><ChefRecipes></ChefRecipes></PrivetRoute>,
+        loader: ({params})=> fetch(`http://localhost:5005/recipes/${params.id}`)
       }
     ]
   },

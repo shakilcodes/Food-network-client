@@ -32,16 +32,7 @@ const Registration = () => {
         
     }
 
-    const provider = new GoogleAuthProvider();
-    const handleGoogle = () =>{
-        googleSignUp(provider)
-
-        .then(result => {
-            
-            console.log(result.user.email)
-        })
-        .catch(error => console.log(error))
-    }
+    
 
     const displayName = (name, photo, loggeduser)=>{
         // console.log(loggeduser)
@@ -104,14 +95,7 @@ const Registration = () => {
             </div>
             </form>
 
-            <div className=''>
-            <div className='text-center mt-5 text-white font-bold'>
-                <button onClick={handleGoogle} className='mx-auto bg-primary p-4 px-10 rounded-md'>SignUp with Google</button>
-            </div>
-            <div className='text-center mt-1 text-white font-bold'>
-                <button className='mx-auto bg-primary p-4 px-10 rounded-md'>SignUp with GitHub</button>
-            </div>
-            </div>
+           
         </div>
     );
 };

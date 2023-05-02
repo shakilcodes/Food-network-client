@@ -1,18 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ChefCard = ({ data }) => {
-    // console.log(data)
+    console.log(data)
     return (
         <div className='flex'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className=" w-96 bg-base-100 shadow-xl">
                 <figure className="p-2 mt-2">
                     <img src="./../../../assignment-10-asset/img/chef-one.jpeg" alt="Shoes" className="rounded-xl" />
                 </figure>
-                <div className="card-body items-center text-center">
+                <div className="card-body">
                     <h2 className="card-title">{data.name}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p>Repes: {data.numberOfRecipes}</p>
+                    <p>Experience {data.yearsOfExperience}</p>
+                    <p>Likes: {data.likes}k</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <Link to={`/recipes/${data.id}`} className="btn btn-primary">View Recipes</Link>
                     </div>
                 </div>
             </div>
