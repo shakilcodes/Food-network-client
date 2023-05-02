@@ -5,7 +5,6 @@ import ChefCard from './ChefCard';
 
 const Home = () => {
     const datas = useLoaderData();
-    console.log(datas);
     return (
         <div>
             <div>

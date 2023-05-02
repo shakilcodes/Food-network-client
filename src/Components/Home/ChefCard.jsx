@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({ data }) => {
-    console.log(data)
     return (
         <div className='flex'>
             <div className=" w-96 bg-base-100 shadow-xl">
