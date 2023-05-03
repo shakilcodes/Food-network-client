@@ -1,7 +1,7 @@
 
 # Food Network
 
-A simple web application that displays the Job Related latest blog and you can apply from here latest Job. This app uses the Rechart data, and provides a user-friendly interface for users to get job Related blog and Apply option information.
+A simple web application that displays the Recipes and Latest blog and you can apply from here You can order from it. This app uses the Rechart data, and provides a user-friendly interface for users to get job Related blog and Apply option information.
 
 ##  Live link
 Here is the live site link:
