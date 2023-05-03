@@ -14,7 +14,7 @@ const ChefCard = ({ data }) => {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{data.name}</h2>
-                    <p>Repes: {data.numberOfRecipes}</p>
+                    <p>Recipes: {data.numberOfRecipes}</p>
                     <p>Experience {data.yearsOfExperience}</p>
                     <p>Likes: {data.likes}k</p>
                     <div className="card-actions">

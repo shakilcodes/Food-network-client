@@ -31,7 +31,7 @@ const Header = () => {
 
                     }
                     {
-                        user == null ? "" : <Link className='btn' onClick={signOut}>SignOut</Link>
+                        user == null ? "" : <Link className='' onClick={signOut}>SignOut</Link>
                     }
 
                 </div>
