@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import './BannerText.css'
+import LazyLoad from 'react-lazy-load';
+
 
 const BannerText = () => {
     return (
@@ -13,7 +15,9 @@ const BannerText = () => {
 
                 </p>
             </div>
+            <LazyLoad threshold={.5}>
             <img src="https://i.postimg.cc/3w0RcpQQ/bannerimages.jpg" alt="" />
+            </LazyLoad>
         </div>
     );
 };

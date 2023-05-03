@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 const ChefCard = ({ data }) => {
     console.log(data)
@@ -7,7 +8,9 @@ const ChefCard = ({ data }) => {
         <div className='md:flex'>
             <div className=" md:w-96 bg-base-100 shadow-xl">
                 <figure className="p-2 mt-2">
+                    <LazyLoad threshold={.5}>
                     <img src={data.picture}alt="Shoes" className="rounded-xl" />
+                    </LazyLoad>
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{data.name}</h2>

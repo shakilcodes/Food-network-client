@@ -5,6 +5,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import ExtraSection from '../ExtraTwoSection/ExtraSection';
 import BannerText from './Banner&Text/BannerText';
 import ChefCard from './ChefCard';
+import LazyLoad from 'react-lazy-load';
 
 const Home = () => {
     const {isLoading} = useContext(AuthContext)
@@ -14,6 +15,7 @@ const Home = () => {
     const datas = useLoaderData();
     return (
         <div>
+            
             <div>
                 <BannerText></BannerText>
             </div>

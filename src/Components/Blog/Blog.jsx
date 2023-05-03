@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import pdf from './../../../public/Blogs.pdf'
 
+
 const Blog = () => {
         const handleDownload = () => {
           window.open(`${pdf}`);
