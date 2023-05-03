@@ -3,11 +3,16 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 const Blog = () => {
-
+        const handleDownload = () => {
+          window.open('./../../../Blogs.pdf', '_blank');
+        }
+      
     return (
         <div className='mx-32'>
-            <h1 className='text-center text-7xl font-bold my-10'>Blogs</h1>
-
+            <h1 className='text-center text-7xl font-bold my-5'>Blogs</h1>
+            <div className='text-center mb-5'>
+            <button className='btn ' onClick={handleDownload}>Download PDF</button>
+            </div>
             <div className='flex items-center gap-10'>
                 <img className='h-64 w-72 rounded-lg' src="https://i.postimg.cc/dtnYcf4h/1.png" alt="" />
                 <div>
