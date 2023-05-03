@@ -17,6 +17,7 @@ import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 import ErorrPage from './Components/ErrorPage/ErorrPage.jsx';
 import ChefRecipes from './Components/Home/ChefRecipes/ChefRecipes.jsx';
 import PrivetRoute from './Components/PrivetRoutes/PrivetRoutes.jsx';
+import Download from './Components/Blog/Download.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         path: '/recipes/:id',
         element: <PrivetRoute><ChefRecipes></ChefRecipes></PrivetRoute>,
         loader: ({params})=> fetch(`https://server-assignmet-ten-openarahmed.vercel.app/recipes/${params.id}`)
+      },
+      {
+        path: 'Blogs.pdf',
+        element: <Download></Download>
       }
     ]
   },
