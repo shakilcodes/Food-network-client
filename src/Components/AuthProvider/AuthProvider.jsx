@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import app from '../firebase.config';
@@ -20,10 +20,6 @@ const signUp = (email, password) =>{
     return  signInWithEmailAndPassword(auth, email, password)
 }
 
-const googleSignUp = (Provider) =>{
-    setIsloading(true)
-    signInWithPopup(auth, Provider)
-}
 const gitHubSign = (Provider) =>{
     setIsloading(true)
     signInWithPopup(auth, Provider)
@@ -44,7 +40,14 @@ useEffect(()=>{
         unsubcribe();
     }
     
+    
 },[])
+const provider = new GoogleAuthProvider()
+
+const googleSignUp = () =>{
+    setIsloading(true)
+    signInWithPopup(auth, provider)
+}
 
     const authinfo = {
         user,

@@ -42,10 +42,10 @@ const Login = () => {
     const handleGoogle = () =>{
         googleSignUp(provider)
         
+        navigate(from, {replace: true})
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser)
-            navigate(from, {replace: true})
             
         })
         .catch(error => console.log(error))
@@ -53,6 +53,8 @@ const Login = () => {
 
     const handleGithubSignIn = ()=>{
         gitHubSign(gitProvider)
+        navigate(from, {replace: true})
+
         .then(result => {
             console.log(result)
         })

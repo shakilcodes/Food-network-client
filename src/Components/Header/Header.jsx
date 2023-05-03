@@ -23,7 +23,6 @@ const Header = () => {
                 <div className='md:text-2xl flex items-center gap-5'>
                     <ActiveLink to='/'>Home</ActiveLink>
                     <ActiveLink to='/blog'>Blog</ActiveLink>
-                    <ActiveLink to='/login'>Login</ActiveLink>
                     <ActiveLink to='/registration'>Registration</ActiveLink>
 
                     {
