@@ -4,8 +4,10 @@ import { GoogleAuthProvider, updateProfile } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Registration = () => {
+    const navigate = useNavigate()
     const [error, setError] =useState("")
     const {registration, googleSignUp, updateUser, isLoading, user} = useContext(AuthContext)
 // const userData = user;
@@ -29,6 +31,7 @@ const Registration = () => {
             displayName(name, photo, loggedUser)
             setError("")
             event.target.reset();
+            navigate('/')
             // console.log(loggedUser)
         })
         .catch(error => {
