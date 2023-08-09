@@ -5,19 +5,20 @@ import LazyLoad from 'react-lazy-load';
 
 const BannerText = () => {
     return (
-        <div className='banner-container px-3 md:mx-32 mt-5 md:my-56'>
-            <div>
-                <h1 className='text-3xl text-center md:text-start md:text-6xl font-bold '>Welcome to <br /> <span className='text-orange-400'>Food</span> Network</h1>
-                <p>Food Network is a television and online platform dedicated to all things food. It features a wide range of programming, including cooking shows, culinary competitions, food travel documentaries, and more.
-
-
-
-
-                </p>
+        <div className=''>
+            <div className='banner-container px-3'>
+                <div className='max-w-[1280px] mx-auto'>
+                    <div className='grid justify-center pt-[250px]'>
+                        <h1 className='text-white 
+                    text-7xl font-bold text-center'>Deliciouse Food</h1>
+                        <p className='text-white w-[600px] text-center my-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eligendi explicabo corporis aliquam debitis error ullam nisi consequatur blanditiis facere.</p>
+                        <div className='text-white mx-auto '>
+                            <button className='border-[2px] border-orange-500 p-3 rounded-full text-orange-500 hover:bg-white'>Discover More</button>
+                            <span className=''> <button className='border-[2px] border-orange-500 p-3 rounded-full text-orange-500 hover:bg-white'>Book A Table</button></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <LazyLoad threshold={.5}>
-            <img src="https://i.postimg.cc/3w0RcpQQ/bannerimages.jpg" alt="" />
-            </LazyLoad>
         </div>
     );
 };

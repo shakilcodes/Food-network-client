@@ -9,10 +9,8 @@ const ChefRecipes = () => {
     const singleData = useLoaderData()
     console.log(singleData)
     return (
-        <div className='mx-32'>
-
-            
-            <h1 className='text-5xl text-center mt-10 font-bold'>Chef Recipes</h1>
+        <div className=''>
+            <h1 className='text-5xl text-center mt-32 font-bold text-black'>Chef Recipes </h1>
            <section>
            <div className='chefRecipes  flex'>
                 <div className=''>

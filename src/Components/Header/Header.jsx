@@ -15,28 +15,35 @@ const Header = () => {
             .catch(error => console.log(error))
     }
     return (
-        <div className='bg-gray-600 py-2 text-white rounded-lg'>
-            <div className='flex justify-between items-center md:mx-32'>
-                <div>
-                    <h1 className=' hidden md:block md:text-4xl'>Food Network</h1>
+        <nav className='bg-black fixed top-0 right-0 left-0
+        '>
+            <section className='max-w-[1280px] mx-auto'>
+                <div className=' py-2 text-white rounded-lg'>
+                    <div className='flex justify-between items-center '>
+                        <div>
+                            <h1 className=' hidden md:block md:text-4xl'>Food Network</h1>
+                        </div>
+                        <div className='md:text-2xl flex items-center gap-5'>
+                            <ActiveLink to='/'>Home</ActiveLink>
+                            <ActiveLink to='/blog'>Blog</ActiveLink>
+
+
+
+
+                        </div>
+                        <div>
+                            {
+                                <NavPic user={user}></NavPic>
+
+                            }
+                            {
+                                user == null ? "" : <Link className='' onClick={signOut}>SignOut</Link>
+                            }
+                        </div>
+                    </div>
                 </div>
-                <div className='md:text-2xl flex items-center gap-5'>
-                    <ActiveLink to='/'>Home</ActiveLink>
-                    <ActiveLink to='/blog'>Blog</ActiveLink>
-                    <ActiveLink to='/registration'>Registration</ActiveLink>
-
-                    {
-                        <NavPic user={user}></NavPic>
-
-                    }
-                    {
-                        user == null ? "" : <Link className='' onClick={signOut}>SignOut</Link>
-                    }
-
-                </div>
-            </div>
-        </div>
+            </section>
+        </nav>
     );
 };
-
 export default Header;

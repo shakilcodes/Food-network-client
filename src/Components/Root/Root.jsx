@@ -6,7 +6,9 @@ import Header from '../Header/Header';
 const Root = () => {
     return (
         <div>
-            <Header></Header>
+            <div className='mt-[60px] '>
+                <Header></Header>
+            </div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

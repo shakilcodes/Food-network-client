@@ -1,12 +1,13 @@
 .banner-container{
-    display: grid;
-    grid-template-columns: 4fr 5fr;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+height: 90vh;
+background-size: cover;
+background-repeat: no-repeat;
+background-image: linear-gradient(to right, black,rgba(38, 34, 34, 0)), url('https://i.postimg.cc/wMj2mdmf/banner.jpg');
+
 }
-@media only screen and (max-width: 600px) {
+
+/* @media only screen and (max-width: 600px) {
     .banner-container{
         grid-template-columns: 1fr;
     }
-  }
+  } */

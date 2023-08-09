@@ -2,21 +2,22 @@ import React from 'react';
 
 const ExtraSection = () => {
     return (
-        <section>
-            <div className='md:mx-32 px-2 md:my-24 my-10 md:grid grid-cols-2 gap-5 justify-around'>
+        <section className='max-w-[1280px] mx-auto mt-32'>
+             <h1 className='text-4xl mb-10 font-bold text-center'>Weekly Speckial</h1>
+            <div className=' px-2 md:my-24 my-10 md:grid grid-cols-2 gap-5 justify-between items-center'>
                 <div>
-                    <h1 className='text-4xl mb-10 font-bold'>Weekly Speckial</h1>
-                    <div className='md:flex justify-center items-center gap-3'>
+                   
+                    <div className='md:flex items-center gap-3'>
                         <img className='md:h-64 md:w-64 rounded-lg' src="https://i.postimg.cc/Kvt1Zt1G/d3db718a011f94f39dd49b576d785b08.jpg" alt="" />
-                        <div>
+                        <div className='mdw-[400px]'>
                             <h1 className='font-bold text-xl'>Pimento Cheese Potato Skins</h1>
                             <p>If there’s anything better than the perfect baked potato, it would have to be a twice baked potato. I’m sure everybody’s...</p>
                             <button className='text-primary'>Read More</button>
                         </div>
                     </div>
                 </div>
-                <div className=''>
-                    <h1 className='text-4xl mt-10 md:mb-20 font-bold'>News and Events</h1>
+                <div className='md:w-[400px] mx-auto'>
+                    <h1 className='text-4xl md:mb-5 font-bold'>News and Events</h1>
                     <h1 className='text-xl'>Best Bread pairing for Barbeque?</h1>
                     <p className='mb-5'>Quis sed mid elit, risus aliquet placerat. Pid et, vel phasellus augue... <span className='text-primary'> more</span></p>
 

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Header from './Components/Header/Header.jsx';
 import Home from './Components/Home/Home.jsx';
-import LogIn from '../../../../MIlstone 10/Assignment-10-practice/name-of-your-project/assignmentTenPractice/src/Component/LogIn/LogIn.jsx';
+
 import Login from './Components/UserInformation/Login.jsx';
 import Registration from './Components/UserInformation/Registration.jsx';
 import Root from './Components/Root/Root.jsx';
